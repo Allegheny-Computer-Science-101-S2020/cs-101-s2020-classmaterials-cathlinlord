@@ -33,7 +33,7 @@ public class Links extends Node {
     public void addFront(int data){
       // add logic
       Node temp = new Node(data);
-      if (tail == null){
+      if (head == null){
           /* linked list is empty */
           temp.setNext(null);
           temp.setPrev(null);
@@ -42,7 +42,7 @@ public class Links extends Node {
         }
         else{
             /* linked list is not empty */
-            Node current = head;
+            Node current = tail;
             while(current.getPrev() != null){
                 current = current.getPrev();
             }
