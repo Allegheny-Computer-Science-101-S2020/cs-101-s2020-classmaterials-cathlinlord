@@ -12,7 +12,7 @@ public class Links extends Node {
             int currentIndex = 1;
             Node current = head;
             while(current != null && index > currentIndex){
-                current = current.getNext();
+                current = current.getNext(); //hopping to the next place
                 currentIndex++;
             }
             Node temp = new Node(data);
@@ -23,10 +23,11 @@ public class Links extends Node {
             }
             else{
                 /* insert in the middle or at the end? */
-
+                temp.setNext(current.getNext());
+                current.setNext(temp);
             }
-            
-            
+            size++;
+
         }
 
     }
@@ -40,11 +41,35 @@ public class Links extends Node {
             while(current != null){
                 System.out.print(current.getData() + "->");
                 current = current.getNext();
-            }    
+            }
             System.out.print("\n");
         }
-        
-        
-    } 
+
+
+    }
+    public void removeNode(int data){
+      Node current = head;
+      if (current.getData() == data) {
+        head = current.getNext();
+      }
+      else {
+        while (current != null && current.getNext().getData != data) {
+          current = current.getNext();
+        }
+        current.setNext(current.getNext().getNext());
+      }
+      size--;
+    }
+    public boolean findNode(int data){
+  		Node current = head;
+      while(current != null){
+        //System.out.println(current.getData());
+        if (current.getData() == data)
+          return true;
+        else
+          current = current.getNext();
+      }
+      return false;
+  	}
     
 }
