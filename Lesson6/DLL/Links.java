@@ -28,7 +28,6 @@ public class Links extends Node {
             tail = temp;
         }
         size++;
-
     }
     public void addFront(int data){
       // add logic
@@ -85,6 +84,4 @@ public class Links extends Node {
     public int getSize(){
         return this.size;
     }
-
-
 }
